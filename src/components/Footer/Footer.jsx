@@ -5,7 +5,7 @@ export default function Footer() {
         <section className="footer_section">
         <div className="container">
             <p>
-            © <span>2023</span>All Rights Reserved By
+            &copy; <span>2023</span> All Rights Reserved By &nbsp;
             <a href="https://html.design/">Free Html Templates</a>
             </p>
         </div>

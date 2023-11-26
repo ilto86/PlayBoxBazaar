@@ -1,6 +1,11 @@
+import Header from '../Header/Header.jsx'
+import Info from '../Info/Info.jsx'
+import Footer from '../Footer/Footer.jsx'
+
 export default function Testimonials() {
     return (
-    <>
+    <div className="hero_area">
+        <Header />
         {/* client section */}
         <section className="client_section layout_padding-bottom">
         <div className="container">
@@ -113,6 +118,8 @@ export default function Testimonials() {
         </div>
         </section>
         {/* end client section */}
-    </>
+        <Info />
+        <Footer />
+    </div>
     )
 }

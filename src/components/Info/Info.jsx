@@ -48,42 +48,42 @@ export default function Info() {
                     <div className="col-4 px-0">
                         <a href="">
                         <div className="insta-box b-1">
-                            <img src="images/w1.png" alt="" />
+                            <img src="images/Playstation/PS2-Console-wController.jpg" alt="" />
                         </div>
                         </a>
                     </div>
                     <div className="col-4 px-0">
                         <a href="">
                         <div className="insta-box b-1">
-                            <img src="images/w2.png" alt="" />
+                            <img src="images/Playstation/PS2-Console-wController(3).jpg" alt="" />
                         </div>
                         </a>
                     </div>
                     <div className="col-4 px-0">
                         <a href="">
                         <div className="insta-box b-1">
-                            <img src="images/w3.png" alt="" />
+                            <img src="images/Playstation/PS4-Console-wController(1).jpg" alt="" />
                         </div>
                         </a>
                     </div>
                     <div className="col-4 px-0">
                         <a href="">
                         <div className="insta-box b-1">
-                            <img src="images/w4.png" alt="" />
+                            <img src="images/Playstation/PS4-Console-wController(1).jpg" alt="" />
                         </div>
                         </a>
                     </div>
                     <div className="col-4 px-0">
                         <a href="">
                         <div className="insta-box b-1">
-                            <img src="images/w5.png" alt="" />
+                            <img src="images/Playstation/PS5-Console-wController(1).jpg" alt="" />
                         </div>
                         </a>
                     </div>
                     <div className="col-4 px-0">
                         <a href="">
                         <div className="insta-box b-1">
-                            <img src="images/w6.png" alt="" />
+                            <img src="images/Playstation/PS5-Console-wController(2).jpg" alt="" />
                         </div>
                         </a>
                     </div>

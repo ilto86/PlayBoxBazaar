@@ -11,13 +11,14 @@ export default function TopSaleProducts() {
             <div className="box">
                 <div className="box-content">
                 <div className="img-box">
-                    <img src="images/w1.png" alt="" />
+                    {/* <img src="images/w1.png" alt="" /> */}
+                    <img src="images/Playstation/PS5-Console-wController(2).jpg" alt="" />
                 </div>
                 <div className="detail-box">
                     <div className="text">
                     <h6>Men's Watch</h6>
                     <h5>
-                        <span>$</span> 300
+                        <span>€</span> 300
                     </h5>
                     </div>
                     <div className="like">
@@ -39,13 +40,14 @@ export default function TopSaleProducts() {
             <div className="box">
                 <div className="box-content">
                 <div className="img-box">
-                    <img src="images/w2.png" alt="" />
+                    {/* <img src="images/w2.png" alt="" /> */}
+                    <img src="images/Playstation/PS3-Console-wController.jpg" alt="" />
                 </div>
                 <div className="detail-box">
                     <div className="text">
                     <h6>Men's Watch</h6>
                     <h5>
-                        <span>$</span> 300
+                        <span>€</span> 300
                     </h5>
                     </div>
                     <div className="like">
@@ -67,13 +69,14 @@ export default function TopSaleProducts() {
             <div className="box">
                 <div className="box-content">
                 <div className="img-box">
-                    <img src="images/w3.png" alt="" />
+                    {/* <img src="images/w3.png" alt="" /> */}
+                    <img src="images/Playstation/PS4-Console-wController.jpg" alt="" />
                 </div>
                 <div className="detail-box">
                     <div className="text">
                     <h6>Men's Watch</h6>
                     <h5>
-                        <span>$</span> 300
+                        <span>€</span> 300
                     </h5>
                     </div>
                     <div className="like">
