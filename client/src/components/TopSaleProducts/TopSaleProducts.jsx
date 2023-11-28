@@ -1,5 +1,21 @@
+import { useEffect, useState } from "react";
+
+import * as consoleService from '../../services/consoleService.js';
+
+
+
+
 export default function TopSaleProducts() {
-    return (
+    const [consoles, setConsoles] = useState([]);
+
+    useEffect(() => {
+        consoleService.getAll()
+            .then(result => setConsoles(result))
+    }, []);
+
+    console.log(consoles);
+
+    return ( 
     <>
         {/* Top Sale product section */}
         <section className="product_section ">

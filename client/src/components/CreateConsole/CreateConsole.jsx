@@ -1,10 +1,15 @@
 // import React, { useState } from 'react';
+// import { create } from '../../services/consoleService.js';
+import * as consoleService from '../../services/consoleService.js';
+import { useNavigate } from 'react-router-dom';
+
 
 import Header from '../Header/Header.jsx'
 import Info from '../Info/Info.jsx'
 import Footer from '../Footer/Footer.jsx'
 
 export default function CreateConsole() {
+    const navigate = useNavigate();
     // const [consoleInfo, setConsoleInfo] = useState({
     //     consoleName: '',
     //     manufacturer: '',
@@ -22,12 +27,25 @@ export default function CreateConsole() {
     // });
     // };
     
-    const createConsoleSubmitHandler = (e) => {
+    const createConsoleSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const gameData = Object.fromEntries(new FormData(e.currentTarget));
+        const consoleData = Object.fromEntries(new FormData(e.currentTarget));
 
-        console.log(gameData);
+        console.log(consoleData);
+
+        // const result = await consoleService.create(consoleData);
+        // console.log(result);
+        try {
+            await consoleService.create(consoleData);
+            
+            navigate('/products')
+        } catch (error) {
+            // Error notification
+            console.log(error);
+        }
+
+
 
         // Perform the action with the gathered data, like sending it to a server or storing it in state
         // console.log('Console Info:', consoleInfo);
@@ -48,7 +66,7 @@ export default function CreateConsole() {
                 <div className="form_container">
                     <form id="create" onSubmit={createConsoleSubmitHandler}>
                     <div>
-                        Console Name:
+                        <label htmlFor="console-name">Console Name:</label>
                         <input
                             type="text"
                             id="consoleName"
@@ -59,7 +77,7 @@ export default function CreateConsole() {
                         />
                     </div>
                     <div>
-                        Manufacturer:
+                        <label htmlFor="manufacturer">Manufacturer:</label>
                         <input 
                             type="text"
                             id="manufacturer" 
@@ -70,7 +88,7 @@ export default function CreateConsole() {
                         />
                     </div>
                     <div>
-                        Release Date:
+                        <label htmlFor="release-date">Release Date:</label>
                         <input 
                             type="date" 
                             id="releaseDate" 
@@ -81,7 +99,7 @@ export default function CreateConsole() {
                         />
                     </div>
                     <div>
-                        Storage Capacity:
+                        <label htmlFor="storage-capacity">Storage Capacity:</label>
                         <input 
                         type="text" 
                         id="storageCapacity"
@@ -92,7 +110,7 @@ export default function CreateConsole() {
                         />
                     </div>
                     <div>
-                        Color:
+                        <label htmlFor="color">Color:</label>
                         <input 
                         type="text" 
                         id="color"
@@ -103,7 +121,7 @@ export default function CreateConsole() {
                         />
                     </div>
                     <div>
-                        Image:
+                        <label htmlFor="image">Image:</label>
                         <input
                         type="text"
                         id="imageUrl"
@@ -114,9 +132,10 @@ export default function CreateConsole() {
                         />
                     </div>
                     <div>
-                        Price:
+                        <label htmlFor="price">Price:</label>
                         <input
                         type="number"
+                        step="any"
                         id="price"
                         min="20.00"
                         placeholder="Price"
