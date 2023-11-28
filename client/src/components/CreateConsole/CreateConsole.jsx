@@ -126,7 +126,7 @@ export default function CreateConsole() {
                         type="text"
                         id="imageUrl"
                         placeholder="Upload a photo..."
-                        name="imgUrl"
+                        name="imageUrl"
                         // value={consoleInfo.imgUrl}
                         // onChange={handleConsoleInfoChange}
                         />
