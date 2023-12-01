@@ -15,6 +15,13 @@ export const getAll = async () => {
     
 };
 
+
+export const getOne = async (consoleId) => {
+    const result = await request.get(`${baseUrl}/${consoleId}`);
+
+    return result;
+}
+
 export const create = async (consoleData) => {
     const result = await request.post(baseUrl, consoleData);
 

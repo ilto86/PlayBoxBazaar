@@ -1,11 +1,6 @@
-import Header from '../Header/Header.jsx'
-import Info from '../Info/Info.jsx'
-import Footer from '../Footer/Footer.jsx'
-
 export default function Contacts() {
     return (
-    <div className="hero_area">
-        <Header />
+        <>
         {/* contact section */}
         <section className="contact_section layout_padding">
         <div className="container">
@@ -49,8 +44,6 @@ export default function Contacts() {
         </div>
         </section>
         {/* end contact section */}
-        <Info />
-        <Footer />
-    </div>
+    </>
     )
 }

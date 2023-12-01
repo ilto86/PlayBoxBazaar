@@ -24,7 +24,7 @@ export default function TopSaleProducts() {
             <div className="container">
 
                 <div className="product_heading">
-                    <h2>Top Sale Watches</h2>
+                    <h2>Top Sale Consoles</h2>
                 </div>
 
                 <div className="product_container">

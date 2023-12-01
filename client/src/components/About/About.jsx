@@ -1,11 +1,6 @@
-import Header from '../Header/Header.jsx'
-import Info from '../Info/Info.jsx'
-import Footer from '../Footer/Footer.jsx'
-
 export default function About() {
     return (
-    <div className="hero_area">
-        <Header />
+        <>
         {/* about section */}
         <section className="about_section layout_padding">
         <div className="container-fluid">
@@ -36,8 +31,6 @@ export default function About() {
         </div>
         </section>
         {/* end about section */}
-        <Info />
-        <Footer />
-    </div>
+    </>
     )
 }
