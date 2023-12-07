@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import HeroArea from './components/HeroArea/HeroArea.jsx'
@@ -12,15 +12,25 @@ import ConsoleDetails from './components/ConsoleDetails/ConsoleDetails.jsx'
 import Info from './components/Info/Info.jsx'
 import Footer from './components/Footer/Footer.jsx'
 
+import Login from './components/Login/Login.jsx'
+import AuthContext from './contexts/authContext.js'
+
 
 function App() {
+    const [auth, setAuth] = useState({});
+
+    const loginSubmitHandler = (values) => {
+        console.log(values)
+    }
+
     return (
-        <>
+        <AuthContext.Provider value={{ loginSubmitHandler }}>
             <div className="hero_area">
                 <Header />
                 <Routes>
                     <Route path="/" element={<HeroArea />} />
                     <Route path="/create" element={<CreateConsole />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/products/:consoleId" element={<ConsoleDetails />} />
@@ -30,7 +40,7 @@ function App() {
                 <Info />
                 <Footer />
             </div>
-        </>
+        </AuthContext.Provider>
     )
 }
 
