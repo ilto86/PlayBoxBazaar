@@ -78,8 +78,8 @@ export default function Header() {
                             </li>
                         </ul>
                         <div className="user_optio_box">
-                            <a href="">
-                                <i className="fa fa-user" aria-hidden="true" />
+                            <a href="/login">
+                                <i className={`fa fa-user ${location.pathname === '/login' ? 'active' : ''}`} aria-hidden="true" />
                             </a>
                             <a href="">
                                 <i className="fa fa-shopping-cart" aria-hidden="true" />

@@ -1,26 +1,37 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
-import HeroArea from './components/HeroArea/HeroArea.jsx'
-import Header from './components/Header/Header.jsx'
-import About from './components/About/About.jsx'
-import Products from './components/Products/Products.jsx'
-import Contacts from './components/Contacts/Contacts.jsx'
-import Testimonials from './components/Testimonials/Testimonials.jsx'
-import CreateConsole from './components/CreateConsole/CreateConsole.jsx'
-import ConsoleDetails from './components/ConsoleDetails/ConsoleDetails.jsx'
-import Info from './components/Info/Info.jsx'
-import Footer from './components/Footer/Footer.jsx'
+import * as authService from './services/authService'
+import AuthContext from './contexts/authContext'
 
-import Login from './components/Login/Login.jsx'
-import AuthContext from './contexts/authContext.js'
+import Home from './components/HeroArea/Home'
+import Header from './components/Header/Header'
+import About from './components/About/About'
+import Products from './components/Products/Products'
+import Contacts from './components/Contacts/Contacts'
+import Testimonials from './components/Testimonials/Testimonials'
+import CreateConsole from './components/CreateConsole/CreateConsole'
+import ConsoleDetails from './components/ConsoleDetails/ConsoleDetails'
+import Info from './components/Info/Info'
+import Footer from './components/Footer/Footer'
+import Login from './components/Login/Login'
+import Path from './paths'
+
 
 
 function App() {
+    const navigate = useNavigate();
     const [auth, setAuth] = useState({});
 
-    const loginSubmitHandler = (values) => {
-        console.log(values)
+    const loginSubmitHandler = async (values) => {
+        console.log(values);
+        const result = await authService.login(values.email, values.password);
+
+        setAuth(result)
+        
+        navigate(Path.Home)
+
+        console.log(result);
     }
 
     return (
@@ -28,7 +39,7 @@ function App() {
             <div className="hero_area">
                 <Header />
                 <Routes>
-                    <Route path="/" element={<HeroArea />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/create" element={<CreateConsole />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/about" element={<About />} />

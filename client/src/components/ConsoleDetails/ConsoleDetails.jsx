@@ -252,16 +252,33 @@ export default function ConsoleDetails() {
                     <h2 className={consoleStyles.text}>Price: &nbsp;
                         <span className={consoleStyles.spans}> {consoleDetails.price} € </span>
                     </h2>
+                    
+                    {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
+                    <div className={consoleStyles.btn_ed}>
+                        <a href="#" className={consoleStyles.btn1}>Edit</a>
+                    </div>  
+                    <div className={consoleStyles.btn_ed}>
+                        <a href="#" className={consoleStyles.btn2}>Delete</a>
+                    </div>
                 </div>
-
-
 
                 <div className={commentStyles.details_comments}>
                     <h2>Comments:</h2>
                     <ul>
                         {comments.map(({ _id, username, text }) => (
                             <li key={_id} className={commentStyles.comment}>
-                                <p>{username}: {text}</p>
+                                {/* <p>{username}: {text}</p> */}
+                                <p>
+                                    {/* <span style={{ color: '#dcf904'}}>{username}</span> */}
+                                    {/* <span style={{ color: 'darkturquoise'}}>{username}</span> */}
+                                    <span style={{ color: 'lightblue'}}>{username}</span>
+                                    <span style={{ color: 'white'}}>: </span>
+                                    {/* <span style={{ color: '#a3e1c4'}}>{text}</span> */}
+                                    {/* <span style={{ color: 'lightblue'}}>{text}</span> */}
+                                    {/* <span style={{ color: 'lightskyblue'}}>{text}</span> */}
+                                    {/* <span style={{ color: 'darkturquoise'}}>{text}</span> */}
+                                    <span style={{ color: 'lightcyan'}}>{text}</span>
+                                </p>
                             </li>
                         ))}
                     </ul>
@@ -271,18 +288,33 @@ export default function ConsoleDetails() {
                     )}
                 </div>
 
-                {/* <!-- Edit/Delete buttons ( Only for creator of this game )  -->
-                <div className="buttons">
-                    <a href="#" className="button">Edit</a>
-                    <a href="#" className="button">Delete</a>
-                </div> */}
-
                 <article className={commentStyles.create_comment}>
                     <label>Add new comment:</label>
+                    {/* <form className={commentStyles.form} onSubmit={addCommentHandler}>
+                        <input id={consoleStyles.type_details} className={commentStyles.input_username} type="text" name="username" placeholder="username" />
+                        <textarea id={commentStyles.textarea_message} name="comment" placeholder="Comment......"></textarea>
+                        <input id={consoleStyles.type_details} className={`${commentStyles.btn_submit}`, ${commentStyles.input_username}} type="submit" value="Add Comment" />
+                    </form> */}
                     <form className={commentStyles.form} onSubmit={addCommentHandler}>
-                        <input type="text" name="username" placeholder="username" />
-                        <textarea name="comment" placeholder="Comment......"></textarea>
-                        <input className={commentStyles.btn_submit} type="submit" value="Add Comment" />
+                        <input
+                            id={commentStyles.input_username}
+                            // className={`${consoleStyles.type_details} ${commentStyles.input_username}`}
+                            className={commentStyles.input_username}
+                            type="text"
+                            name="username"
+                            placeholder="username"
+                        />
+                        <textarea
+                            // id={commentStyles.textarea_message}
+                            name="comment"
+                            placeholder="Comment......"
+                        ></textarea>
+                        <input
+                            // className={`${consoleStyles.type_details} ${commentStyles.btn_sbmt}`}
+                            className={commentStyles.btn_sbmt}
+                            type="submit"
+                            value="Add Comment"
+                        />
                     </form>
                 </article>
             </div>
