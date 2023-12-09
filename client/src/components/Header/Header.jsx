@@ -1,8 +1,17 @@
-import styles from './Header.module.css';
+// import styles from './Header.module.css';
+
+import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import AuthContext from '../../contexts/authContext';
 
 export default function Header() {
     const location = useLocation();
+
+    const {
+        isAuthenticated,
+        username,
+    } = useContext(AuthContext);
+
 
     return (
     <>
@@ -10,9 +19,9 @@ export default function Header() {
         <header className="header-section">
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg custom_nav-container">
-                    <a className="navbar-brand" href="/">
+                    <Link className="navbar-brand" to="/">
                         <span style={{ textTransform: 'none' }}>PlayBoxBazaar&reg;</span>
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -27,63 +36,83 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav  ">
                             <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
-                                <a
+                                <Link
                                 className="nav-link" 
-                                href="/"
+                                to="/"
                                 >
                                     Home <span className="sr-only">(current)</span>
-                                </a>
+                                </Link>
                             </li>
-                            <li className={`nav-item ${location.pathname === '/create' ? 'active' : ''}`}>
-                                <a 
+                            {isAuthenticated && (
+                                <li className={`nav-item ${location.pathname === '/create' ? 'active' : ''}`}>
+                                    <Link 
+                                    className="nav-link" 
+                                    to="/create"
+                                    >
+                                        {" "}
+                                        Create Console
+                                    </Link>
+
+                                {/* <Link 
                                 className="nav-link" 
-                                href="/create"
+                                to="/create"
                                 >
                                     {" "}
+                                    
                                     Create Console
-                                </a>
-                            </li>
+                                </Link> */}
+                                </li>
+                            )}
                             <li className={`nav-item ${location.pathname === '/about' ? 'active' : ''}`}>
-                                <a 
+                                <Link 
                                 className="nav-link" 
-                                href="/about"
+                                to="/about"
                                 >
                                     {" "}
                                     About
-                                </a>
+                                </Link>
                             </li>
                             <li className={`nav-item ${location.pathname === '/products' ? 'active' : ''}`}>
-                                <a 
+                                <Link 
                                 className="nav-link" 
-                                href="/products"
+                                to="/products"
                                 >
                                     Products
-                                </a>
+                                </Link>
                             </li>
                             <li className={`nav-item ${location.pathname === '/testimonials' ? 'active' : ''}`}>
-                                <a 
+                                <Link 
                                 className="nav-link" 
-                                href="/testimonials"
+                                to="/testimonials"
                                 >
                                     Testimonial
-                                </a>
+                                </Link>
                             </li>
                             <li className={`nav-item ${location.pathname === '/contacts' ? 'active' : ''}`}>
-                                <a 
+                                <Link 
                                 className="nav-link" 
-                                href="/contacts"
+                                to="/contacts"
                                 >
                                     Contact Us
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                         <div className="user_optio_box">
-                            <a href="/login">
-                                <i className={`fa fa-user ${location.pathname === '/login' ? 'active' : ''}`} aria-hidden="true" />
-                            </a>
-                            <a href="">
-                                <i className="fa fa-shopping-cart" aria-hidden="true" />
-                            </a>
+                            {!isAuthenticated && (
+                                <Link to="/sign-in">
+                                    <i className={`fa fa-user ${location.pathname === '/sign-in' ? 'active' : ''}`} aria-hidden="true" />
+                                </Link>
+                            )}
+                            {isAuthenticated && (
+                                <>
+                                    <h6>
+                                        {username}
+                                    </h6>
+                                    <Link to="https://www.mediamarkt.de/de/product/_sony-playstationr5-digital-edition-modelgruppe-slim-2907073.html">
+                                        <i className="fa fa-shopping-cart" aria-hidden="true" />
+                                    </Link>
+                                </>
+                            )}
                         </div>
                     </div>
                 </nav>

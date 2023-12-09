@@ -15,12 +15,14 @@ import ConsoleDetails from './components/ConsoleDetails/ConsoleDetails'
 import Info from './components/Info/Info'
 import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login'
+import Register from './components/Register/Register'
 import Path from './paths'
 
 
 
 function App() {
     const navigate = useNavigate();
+
     const [auth, setAuth] = useState({});
 
     const loginSubmitHandler = async (values) => {
@@ -32,21 +34,34 @@ function App() {
         navigate(Path.Home)
 
         console.log(result);
+    };
+
+    const registerSubmitHandler = async (values) => {
+        console.log(values);
+    }
+
+    const values = {
+        loginSubmitHandler,
+        registerSubmitHandler,
+        username: auth.username,
+        email: auth.email,
+        isAuthenticated: !!auth.username,
     }
 
     return (
-        <AuthContext.Provider value={{ loginSubmitHandler }}>
+        <AuthContext.Provider value={values}>
             <div className="hero_area">
                 <Header />
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/create" element={<CreateConsole />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/products" element={<Products />} />
-                    <Route path="/products/:consoleId" element={<ConsoleDetails />} />
-                    <Route path="/contacts" element={<Contacts />} />
-                    <Route path="/testimonials" element={<Testimonials />} />
+                    <Route path={Path.Home} element={<Home />} />
+                    <Route path={Path.Create} element={<CreateConsole />} />
+                    <Route path={Path.Login} element={<Login />} />
+                    <Route path={Path.Register} element={<Register />} />
+                    <Route path={Path.About} element={<About />} />
+                    <Route path={Path.Products} element={<Products />} />
+                    <Route path={Path.ConsoleDetails} element={<ConsoleDetails />} />
+                    <Route path={Path.Contacts} element={<Contacts />} />
+                    <Route path={Path.Testimonials} element={<Testimonials />} />
                 </Routes>
                 <Info />
                 <Footer />
